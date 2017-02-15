@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.admin.tinkerdemo.utils;
+package com.example.admin.tinkerdemo.util;
 
 import android.os.Environment;
 import android.os.StatFs;

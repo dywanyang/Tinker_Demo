@@ -7,9 +7,8 @@ import android.content.Intent;
 import android.os.Build;
 import android.support.multidex.MultiDex;
 
-import com.example.admin.tinkerdemo.utils.TinkerManager;
+import com.example.admin.tinkerdemo.util.TinkerManager;
 import com.tencent.tinker.anno.DefaultLifeCycle;
-import com.tencent.tinker.lib.tinker.TinkerInstaller;
 import com.tencent.tinker.loader.app.DefaultApplicationLike;
 import com.tencent.tinker.loader.shareutil.ShareConstants;
 
@@ -30,6 +29,7 @@ public class SimpleAppLike extends DefaultApplicationLike{
     public void onBaseContextAttached(Context base) {
         super.onBaseContextAttached(base);
         MultiDex.install(base);
+        //TinkerManager.setUpgradeRetryEnable(true);//should set before tinker is installed
         TinkerManager.installTinker(this);
        // TinkerInstaller.install(this);
     }

@@ -38,9 +38,15 @@
             android:text="show" />
 
         <Button
-            android:id="@+id/btn_fixed"
+        android:id="@+id/btn_fixed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="fixed" />
+
+        <Button
+            android:id="@+id/btn_kill"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="fixed" />
+            android:text="kill" />
     </LinearLayout>
 </RelativeLayout>
