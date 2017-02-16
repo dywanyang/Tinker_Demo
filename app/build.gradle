@@ -97,9 +97,10 @@ android {
         buildConfigField "String", "PLATFORM",  "\"all\""
     }
 
-//    aaptOptions{
-//        cruncherEnabled false
-//    }
+    //关闭aapt对png的优化
+    aaptOptions{
+        cruncherEnabled false
+    }
 
 //    //use to test flavors support
 //    productFlavors {
@@ -235,6 +236,7 @@ if (buildWithTinker()) {
             /**
              * optional，default 'null'
              * It is nice to keep the resource id from R.txt file to reduce java changes
+             * 不仅可以减少补丁包大小，同时防止remote view id变更造成的异常情况
              */
             applyResourceMapping = getApplyResourceMappingPath()
 

@@ -1,5 +1,6 @@
 package com.example.admin.tinkerdemo;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,12 @@ import android.widget.Toast;
 import com.example.admin.tinkerdemo.util.Utils;
 import com.tencent.tinker.lib.tinker.Tinker;
 import com.tencent.tinker.lib.tinker.TinkerInstaller;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -67,7 +74,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_kill:
                 Log.i(TAG, "==Button KILL is onclicked==");
-                android.os.Process.killProcess(android.os.Process.myPid());
+                try {
+                    //readAssetsFile(this);
+                    InputStream is = this.getResources().getAssets().open("channelname.txt");
+                    int size = is.available();
+                    byte[] buffer = new byte[size];
+                    is.read(buffer);
+                    is.close();
+
+                    String text = new String(buffer, "GB2312");
+                    tvTitle.setText(text);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    Log.i(TAG, "==Error=="+e.toString());
+                }
+                // android.os.Process.killProcess(android.os.Process.myPid());
                 break;
 
             default:
@@ -85,5 +106,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onPause() {
         super.onPause();
         Utils.setBackground(true);
+    }
+
+    public void readAssetsFile(Activity activity) throws IOException {
+
     }
 }

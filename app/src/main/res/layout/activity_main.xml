@@ -47,6 +47,6 @@
             android:id="@+id/btn_kill"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="kill" />
+            android:text="show assets" />
     </LinearLayout>
 </RelativeLayout>
