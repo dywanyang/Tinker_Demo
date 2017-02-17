@@ -32,6 +32,8 @@ public class SimpleAppLike extends DefaultApplicationLike{
         //TinkerManager.setUpgradeRetryEnable(true);//should set before tinker is installed
         TinkerManager.installTinker(this);
        // TinkerInstaller.install(this);
+        DefaultLifeCycle ca = e.getAnnotation(DefaultLifeCycle.class);
+
     }
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     public void registerActivityLifecycleCallbacks(Application.ActivityLifecycleCallbacks callback) {
